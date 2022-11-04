@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="style.css"
+        rel="stylesheet"
+        type="text/css"/>   
+    </head>
+    <body style="margin: 0%; padding:0%">
+    
+    <div class="tophalf" id ="topID" style="height:49.5vh; background-color:green;  background-position-y: 0%;
+    background-position-x: 10%;">
+        <img id="player1" src="./assets/red-plane.png" style="left:10px;position:absolute;opacity:1.0;" height="75px">
+    </div>
+    <div style="height:1vh"></div>
+    <div class="bottomhalf" id="bottomID" style="height:49.5vh; background-color:red; background-position-x: 10%">
+        <img id="player2" src="./assets/green-plane.png" style="left:10px;top:100px;position:absolute;opacity:1.0;" height="75px">
+    </div>
+        
+    </body>
+    <script src="./game.js"></script>
+    <script>
+        document.getElementById("player1").style.top = parseInt(window.innerHeight/4) + 'px'
+        document.getElementById("player2").style.top = parseInt(3*window.innerHeight/4) + 'px'
+        
+    </script>
+</html>
