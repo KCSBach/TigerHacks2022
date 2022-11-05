@@ -136,7 +136,8 @@ const animate = (cur_speed1, cur_speed2) => {
     
 }
 
-animate(3, 3)
+let button = document.getElementById("buttonStart")
+button.addEventListener("click",function(){animate(3,3)})
 
  
 
