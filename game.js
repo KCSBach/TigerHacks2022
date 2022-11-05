@@ -201,7 +201,6 @@ const checkForWin = () => {
 
         return 1
     } else if (finishLinePos2 < player2pos) {
-        console.log("Player 2 Wins!")
 
         let winner = document.getElementById("winmessage")
         
