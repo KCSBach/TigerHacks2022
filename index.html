@@ -5,24 +5,29 @@
         rel="stylesheet"
         type="text/css"/>   
     </head>
+
     <body style="margin: 0%; padding:0%; overflow:hidden">
     
+    
     <div class="tophalf" id ="topID" style="height:49.5vh; background-color:green;  background-position-y: 0%;
-    background-position-x: 10%;overflow: auto;">
-        <img id="topjetstream" src="./assets/jetstream.png" style="position:absolute;transform:scaleX(-1);left: 500px;top: 50px;" height="50px" width="500px">
+    background-position-x: 0px;overflow: auto;">
+        <img id="topjetstream" src="./assets/jetstream.png" style="position:absolute;transform:scaleX(-1);left: 1500px;top: -1px;" height="50px" width="500px">
         <img id="player1" src="./assets/red-plane.png" style="left:10px;position:absolute" height="75px">
+        <img id="player1finish" src="./assets/finishline.png" style="height:49.5vh; width:20vw;position:absolute;left: 5500px;">
+        <button id="playagain" style="position:absolute; height:10vh; width:20vh; top:45%; left:45%; display:none;">play again</button>
+        <p id="winmessage" style="text-align: center;font-size: 100pt;display:none;position:relative;z-index: 1;">Result</p>
     </div>
-    <div style="height:1vh"></div>
-    <div class="bottomhalf" id="bottomID" style="height:49.5vh; background-color:red; background-position-x: 10%">
-        <img id="bottomjetstream" src="./assets/jetstream.png" style="position:absolute;transform:scaleX(-1);left: 500px;top: 75vh;" height="50px" width="500px">
+    <div style="height:1vh; background-color:black"></div>
+    <div class="bottomhalf" id="bottomID" style="height:49.5vh; background-color:red; background-position-x: 0px">
+        <img id="bottomjetstream" src="./assets/jetstream.png" style="position:absolute;transform:scaleX(-1);left: 1500px;top: -1px;" height="50px" width="500px">
         <img id="player2" src="./assets/green-plane.png" style="left:10px;top:100px;position:absolute;opacity:1.0;" height="75px">
+        <img id="player2finish" src="./assets/finishline.png" style="height:49.5vh; width:20vw;position:absolute;left: 5500px;">
     </div>
         
     </body>
     <script src="./game.js"></script>
     <script>
         document.getElementById("player1").style.top = parseInt(window.innerHeight/4) + 'px'
-        document.getElementById("player2").style.top = parseInt(3*window.innerHeight/4) + 'px'
-        
+        document.getElementById("player2").style.top = parseInt(3*window.innerHeight/4) + 'px' 
     </script>
 </html>
