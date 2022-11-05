@@ -48,7 +48,7 @@ document.addEventListener("keydown", handleKeyDown)
 document.addEventListener("keyup", handleKeyUp)
 
 document.getElementById("playagain").addEventListener("click", () => {
-    console.log("Clicked")
+    
     reset_race()
     raceinprogress = true;
     document.getElementById("playagain").style.display = "none"
@@ -90,7 +90,7 @@ const manageTopJetstream = (speed_start) => {
     //}
 
     let topStream = document.getElementById("topjetstream")
-    if ((parseInt(topStream.style.left) < 0-parseInt(topStream.width) || topStream.style.top == "-1px") && parseFloat(document.getElementById("player1finish").style.left) > window.innerWidth) {
+    if ((parseInt(topStream.style.left) < 0-parseInt(topStream.width) || topStream.style.top == "-1px") && parseFloat(document.getElementById("player1finish").style.left) > parseInt(window.innerWidth) + parseInt(topStream.width)) {
         topStream.style.left = parseInt(window.innerWidth) + 'px'
         topStream.style.top = (Math.random() * (parseInt(window.innerHeight)/2-topStream.height)) + "px"
     }
@@ -111,7 +111,9 @@ const manageTopJetstream = (speed_start) => {
 const manageBottomJetstream = (speed_start) => {
     
     let bottomStream = document.getElementById("bottomjetstream")
-    if ((parseInt(bottomStream.style.left) < 0-parseInt(bottomStream.width) || bottomStream.style.top == "-1px") && parseFloat(document.getElementById("player2finish").style.left) > window.innerWidth) {
+
+
+    if ((parseInt(bottomStream.style.left) < 0-parseInt(bottomStream.width) || bottomStream.style.top == "-1px") && parseFloat(document.getElementById("player2finish").style.left) >= parseInt(window.innerWidth) + parseInt(bottomStream.width)) {
         bottomStream.style.left = parseInt(window.innerWidth) + 'px'
         bottomStream.style.top = (Math.random() * (parseInt(window.innerHeight)/2-bottomStream.height)) + (.51*parseInt(window.innerHeight)) + "px"
     }
@@ -136,10 +138,10 @@ const animate = (cur_speed1, cur_speed2) => {
     player1_speed= manageTopJetstream(cur_speed1) // add speed when jetstreams are hit
     player2_speed= manageBottomJetstream(cur_speed2)
     
-    /*controller[87].speed = player1_speed
-    controller[83].speed = player1_speed
-    controller[38].speed = player2_speed
-    controller[40].speed = player2_speed*/
+    controller[87].speed += 0.001
+    controller[83].speed += 0.001
+    controller[38].speed += 0.001
+    controller[40].speed += 0.001
     
     moveBackgroundTop(player1_speed)
     moveBackgroundBottom(player2_speed)
@@ -151,17 +153,21 @@ const animate = (cur_speed1, cur_speed2) => {
 
     if (raceinprogress) {
         window.requestAnimationFrame(() => {
-            animate(cur_speed1+0.001, cur_speed2+0.001)
+            animate(cur_speed1+0.002, cur_speed2+0.002)
         })  
     } else {
         let but = document.getElementById("playagain")
-        console.log(but)
+        
         but.style.display = "block"
     }
 }
 
 let button = document.getElementById("buttonStart")
-button.addEventListener("click",function(){animate(3,3)})
+button.addEventListener("click",function(){
+    button.style.display = 'none'
+    //remove text
+    document.getElementById("winmessage").style.display = "none"
+    animate(5,5)})
 
 const checkForWin = () => {
     let finishline1 = document.getElementById("player1finish") 
@@ -181,11 +187,11 @@ const checkForWin = () => {
         
         winner.textContent = "It's a tie!"
         winner.style.display="block"
-        console.log("It's A Tie!")
+        
 
         return 3
     } else if (finishLinePos1 < player1pos) {
-        console.log("Player 1 Wins!")
+        
 
         let winner = document.getElementById("winmessage")
         
@@ -227,7 +233,7 @@ const reset_race  = () => {
     document.getElementById("winmessage").style.display = "none"
 }
 
-animate(5, 5)
+// animate(5, 5)
 
 
 
