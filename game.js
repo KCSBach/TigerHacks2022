@@ -52,8 +52,6 @@ document.getElementById("playagain").addEventListener("click", () => {
     reset_race()
     raceinprogress = true;
     document.getElementById("playagain").style.display = "none"
-    animate(5, 5)
-
 })
 
 
@@ -84,11 +82,6 @@ const moveBackgroundBottom = (speed) => {
 }
 
 const manageTopJetstream = (speed_start) => {
-
-    //if (parseFloat(document.getElementById("player1finish").style.left) < window.innerWidth) {
-      //  return speed_start
-    //}
-
     let topStream = document.getElementById("topjetstream")
     if ((parseInt(topStream.style.left) < 0-parseInt(topStream.width) || topStream.style.top == "-1px") && parseFloat(document.getElementById("player1finish").style.left) > parseInt(window.innerWidth) + parseInt(topStream.width)) {
         topStream.style.left = parseInt(window.innerWidth) + 'px'
@@ -159,6 +152,10 @@ const animate = (cur_speed1, cur_speed2) => {
         let but = document.getElementById("playagain")
         
         but.style.display = "block"
+
+        window.requestAnimationFrame(() => {
+            animate(5, 5)
+        })  
     }
 }
 
@@ -167,6 +164,10 @@ button.addEventListener("click",function(){
     button.style.display = 'none'
     //remove text
     document.getElementById("winmessage").style.display = "none"
+    document.getElementById("names").style.display = "none"
+    document.getElementById("controls").style.display = "none"
+    document.getElementById("player1").style.top = parseInt(window.innerHeight/4) + 'px'
+     document.getElementById("player2").style.top = parseInt(3*window.innerHeight/4) + 'px' 
     animate(5,5)})
 
 const checkForWin = () => {
@@ -190,7 +191,7 @@ const checkForWin = () => {
         
 
         return 3
-    } else if (finishLinePos1 < player1pos) {
+    } else if (finishLinePos1 < player1pos && raceinprogress) {
         
 
         let winner = document.getElementById("winmessage")
@@ -200,7 +201,7 @@ const checkForWin = () => {
         winner.style.display="block"
 
         return 1
-    } else if (finishLinePos2 < player2pos) {
+    } else if (finishLinePos2 < player2pos && raceinprogress) {
 
         let winner = document.getElementById("winmessage")
         
@@ -211,7 +212,6 @@ const checkForWin = () => {
         return 2
     }
 
-    // no winners yet
     return 0
 }
 
@@ -221,8 +221,8 @@ const reset_race  = () => {
     document.getElementById("bottomID").style.backgroundPositionX = "0px"
 
     //reset finish lines
-    document.getElementById("player1finish").style.left = "5000px"
-    document.getElementById("player2finish").style.left = "5000px"
+    document.getElementById("player1finish").style.left = "20000px"
+    document.getElementById("player2finish").style.left = "20000px"
 
     // reset planes
     document.getElementById("player1").style.top = parseInt(window.innerHeight/4) + 'px'
@@ -231,11 +231,3 @@ const reset_race  = () => {
     //remove text
     document.getElementById("winmessage").style.display = "none"
 }
-
-// animate(5, 5)
-
-
-
-
-
-
