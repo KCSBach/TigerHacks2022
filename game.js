@@ -160,6 +160,8 @@ const animate = (cur_speed1, cur_speed2) => {
     }
 }
 
+let button = document.getElementById("buttonStart")
+button.addEventListener("click",function(){animate(3,3)})
 
 const checkForWin = () => {
     let finishline1 = document.getElementById("player1finish") 
