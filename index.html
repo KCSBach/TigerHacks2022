@@ -5,14 +5,16 @@
         rel="stylesheet"
         type="text/css"/>   
     </head>
-    <body style="margin: 0%; padding:0%">
+    <body style="margin: 0%; padding:0%; overflow:hidden">
     
     <div class="tophalf" id ="topID" style="height:49.5vh; background-color:green;  background-position-y: 0%;
-    background-position-x: 10%;">
-        <img id="player1" src="./assets/red-plane.png" style="left:10px;position:absolute;opacity:1.0;" height="75px">
+    background-position-x: 10%;overflow: auto;">
+        <img id="topjetstream" src="./assets/jetstream.png" style="position:absolute;transform:scaleX(-1);left: 500px;top: 50px;" height="50px" width="500px">
+        <img id="player1" src="./assets/red-plane.png" style="left:10px;position:absolute" height="75px">
     </div>
     <div style="height:1vh"></div>
     <div class="bottomhalf" id="bottomID" style="height:49.5vh; background-color:red; background-position-x: 10%">
+        <img id="bottomjetstream" src="./assets/jetstream.png" style="position:absolute;transform:scaleX(-1);left: 500px;top: 75vh;" height="50px" width="500px">
         <img id="player2" src="./assets/green-plane.png" style="left:10px;top:100px;position:absolute;opacity:1.0;" height="75px">
     </div>
         

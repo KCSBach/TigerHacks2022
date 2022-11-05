@@ -1,14 +1,11 @@
 div.tophalf {
     background-image: url("./assets/skytemp.jpg");
     background-repeat: repeat;
-    background-size: 5000px 50vh;
-    
+    background-size: 5000px 50vh;   
 }
 
 div.bottomhalf {
     background-image: url("./assets/skytemp.jpg");
     background-repeat: repeat;
-    background-size: 5000px 50vh;
-
-    
+    background-size: 5000px 50vh;  
 }
